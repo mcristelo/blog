@@ -3,7 +3,7 @@
     <title>MC Blog</title>
     <link href="https://mcristelo.github.io/blog/feed.xml" rel="self" />
     <link href="https://mcristelo.github.io/blog" />
-    <updated>2020-04-20T18:46:57+01:00</updated>
+    <updated>2020-04-20T19:01:30+01:00</updated>
     <author>
         <name>Manuel</name>
     </author>
@@ -18,15 +18,16 @@
         <id>https://mcristelo.github.io/blog/simple-authentication-in-dotnet-core.html</id>
             <category term="javascript"/>
 
-        <updated>2020-04-20T18:44:08+01:00</updated>
+        <updated>2020-04-20T19:01:19+01:00</updated>
             <summary>
                 <![CDATA[
-                    In order to use the dotnet core Cookie authentication you need to make the following changes to your project startup file. public void ConfigureServices(IServiceCollection services){ //(...) services.Configure(options =&gt; { options.MinimumSameSitePolicy = SameSiteMode.Strict; }); //(...)} public void ConfigureServices(IServiceCollection services){ //(....) services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) .AddCookie(); //(....)}Then on your login function var claims&hellip;
+                    The simplest way to add authentication to your website without using Identity is to use the Cookie Authentication. In order to use the dotnet core Cookie Authentication you need to make the following changes to your project startup file. public void ConfigureServices(IServiceCollection services){ //(...) services.Configure(options =&gt; { options.MinimumSameSitePolicy&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>In order to use the dotnet core Cookie authentication you need to make the following changes to your project startup file.</p>
+                <p>The simplest way to add authentication to your website without using Identity is to use the Cookie Authentication.</p>
+<p>In order to use the dotnet core Cookie Authentication you need to make the following changes to your project startup file.</p>
 <pre class="prettyprint">public void ConfigureServices(IServiceCollection services)
 {
     //(...)
@@ -48,7 +49,7 @@ public void ConfigureServices(IServiceCollection services)
     //(....)
 }
 </pre>
-<p>Then on your login function </p>
+<p>Then on your login function add</p>
 <pre class="prettyprint">  var claims = new List
   {
       new Claim(ClaimTypes.Name, user.Email),
@@ -68,6 +69,7 @@ public void ConfigureServices(IServiceCollection services)
     new AuthenticationProperties() { ExpiresUtc = 
   DateTime.Now.AddMinutes(20)});
 </pre>
+<p>Please comment below if you found this useful.</p>
             ]]>
         </content>
     </entry>

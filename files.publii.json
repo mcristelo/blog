@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "c94fd2ef4707e399c04837354de04271"
+        "md5": "5e4b0763c628b87a91f54b86e691e568"
     },
     {
         "path": "assets",
@@ -32,7 +32,7 @@
     {
         "path": "/assets/css/style.css",
         "type": "file",
-        "md5": "cd7cde01862f3523ed8fe203d1bc3032"
+        "md5": "403b26a4cf44e96047fef1e3dfb9d29f"
     },
     {
         "path": "assets/js",
@@ -117,22 +117,22 @@
     {
         "path": "/authors/manuel/index.html",
         "type": "file",
-        "md5": "edb032a9ce0653063111f741d17a5d3b"
+        "md5": "eca8913f29b6c4abed8bf4fc695874d3"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "c3acd9c3799b402fb76832121f13b664"
+        "md5": "0ec5b700088faeae30424b04fd7fae14"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "79a7392b26ea07995dd6e3eb573f9ee6"
+        "md5": "73108dc618440ff50758b6bf6860d07a"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "c9614bf5cba5d74edcba85b9e3a110a3"
+        "md5": "ac210bf7e6e034e27ca9e7304f34c11f"
     },
     {
         "path": "javascript",
@@ -142,7 +142,7 @@
     {
         "path": "/javascript/index.html",
         "type": "file",
-        "md5": "8a35f24d3cc01ab241844e1a23ab65a7"
+        "md5": "6d03c6e6d52dccc5aeea7bc755f2d3d2"
     },
     {
         "path": "media",
@@ -162,17 +162,17 @@
     {
         "path": "search.html",
         "type": "file",
-        "md5": "61a0652325e61e02a693f97080e250a2"
+        "md5": "3ba9d1b9671b25b0234f098c642b3282"
     },
     {
         "path": "simple-authentication-in-dotnet-core.html",
         "type": "file",
-        "md5": "e0fd1081073c0e553a3c6fd9a59cb3a9"
+        "md5": "17444e8e7a5fc8fbd90c20e91fdd9f6f"
     },
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "57e4ea3873ea0d3f76598ddaab01372f"
+        "md5": "5c58988da52f6179fcebc533e9d2a2be"
     },
     {
         "path": "sitemap.xsl",
