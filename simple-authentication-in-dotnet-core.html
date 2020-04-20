@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Simple authentication in dotnet core - MC Blog</title><meta name="description" content="In order to use the dotnet core Cookie authentication you need to make the following changes to your project startup file. public void ConfigureServices(IServiceCollection services){ //(...) services.Configure(options =&gt; { options.MinimumSameSitePolicy = SameSiteMode.Strict; }); //(...)} public void ConfigureServices(IServiceCollection services){ //(....) services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) .AddCookie(); //(....)}Then on your login function var claims&hellip;"><meta name="robots" content="index, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://mcristelo.github.io/blog/simple-authentication-in-dotnet-core.html"><link rel="alternate" type="application/atom+xml" href="https://mcristelo.github.io/blog/feed.xml"><link rel="alternate" type="application/json" href="https://mcristelo.github.io/blog/feed.json"><meta property="og:title" content="Simple authentication in dotnet core"><meta property="og:site_name" content="MC Blog"><meta property="og:description" content="In order to use the dotnet core Cookie authentication you need to make the following changes to your project startup file. public void ConfigureServices(IServiceCollection services){ //(...) services.Configure(options =&gt; { options.MinimumSameSitePolicy = SameSiteMode.Strict; }); //(...)} public void ConfigureServices(IServiceCollection services){ //(....) services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) .AddCookie(); //(....)}Then on your login function var claims&hellip;"><meta property="og:url" content="https://mcristelo.github.io/blog/simple-authentication-in-dotnet-core.html"><meta property="og:type" content="article"><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><style>h1,h2,h3,h4,h5,h6,.btn,[type=button],[type=submit],button,.navbar .navbar__menu li,.navbar_mobile_sidebar .navbar__menu li,.feed__author,.post__tag,.post__share>a span,.post__nav-link>span,.footer{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"}body,h1,.h1,blockquote,.search__input,.author__name,.author__info>p,.feed__item h2,.post__nav-link{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"}</style><link rel="stylesheet" href="https://mcristelo.github.io/blog/assets/css/style.css?v=cd7cde01862f3523ed8fe203d1bc3032"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mcristelo.github.io/blog/simple-authentication-in-dotnet-core.html"},"headline":"Simple authentication in dotnet core","datePublished":"2020-04-09T17:35","dateModified":"2020-04-20T18:44","description":"In order to use the dotnet core Cookie authentication you need to make the following changes to your project startup file. public void ConfigureServices(IServiceCollection services){ //(...) services.Configure(options =&gt; { options.MinimumSameSitePolicy = SameSiteMode.Strict; }); //(...)} public void ConfigureServices(IServiceCollection services){ //(....) services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) .AddCookie(); //(....)}Then on your login function var claims&hellip;","author":{"@type":"Person","name":"Manuel"},"publisher":{"@type":"Organization","name":"Manuel"}}</script><script src="https://mcristelo.github.io/blog/assets/js/ls.parent-fit.min.js?v=f8467455ea5c88e3e51a4f212d2632bd"></script><script async src="https://mcristelo.github.io/blog/assets/js/lazysizes.min.js?v=6a69d476c93de2b78a72acb259abccea"></script></head><body><div class="site-container"><header class="top" id="js-header"><a class="logo" href="https://mcristelo.github.io/blog/">MC Blog</a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://mcristelo.github.io/blog/javascript/" title="javascript" target="_self">javascript</a></li></ul></nav><div class="search"><div class="search__overlay js-search-overlay"><div class="search__overlay-inner"><form action="https://mcristelo.github.io/blog/search.html" class="search__form"><input class="search__input js-search-input" type="search" name="q" placeholder="search..." autofocus="autofocus"></form><button class="search__close js-search-close" aria-label="Close">Close</button></div></div><button class="search__btn js-search-btn" aria-label="Search"><svg role="presentation" focusable="false"><use xlink:href="https://mcristelo.github.io/blog/assets/svg/svg-map.svg#search"/></svg></button></div></header><main><article class="post"><div class="hero"><header class="hero__content"><div class="wrapper"><div class="post__meta"><time datetime="2020-04-09T17:35">April 9, 2020</time></div><h1>Simple authentication in dotnet core</h1></div></header></div><div class="wrapper post__entry"><p>In order to use the dotnet core Cookie authentication you need to make the following changes to your project startup file.</p><pre class="prettyprint">public void ConfigureServices(IServiceCollection services)
+{
+    //(...)
+
+    services.Configure(options =&gt;
+    { 
+      options.MinimumSameSitePolicy = SameSiteMode.Strict;
+    });  
+
+    //(...)
+}
+  
+public void ConfigureServices(IServiceCollection services)
+{
+    //(....)
+    services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie();
+  
+    //(....)
+}
+</pre><p>Then on your login function </p><pre class="prettyprint">  var claims = new List
+  {
+      new Claim(ClaimTypes.Name, user.Email),
+      new Claim("FullName", user.FullName),
+      new Claim(ClaimTypes.Role, "Administrator"),
+  };
+
+  var claimsIdentity = new ClaimsIdentity(
+      claims, CookieAuthenticationDefaults.AuthenticationScheme);
+  
+  // ExpiresUtc is set to 20 minutes from now which means the auth 
+  // ticket will expire after 20 of inactivity by the user 
+  // and will force a login
+  await HttpContext.SignInAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    new ClaimsPrincipal(claimsIdentity),
+    new AuthenticationProperties() { ExpiresUtc = 
+  DateTime.Now.AddMinutes(20)});
+</pre></div><footer class="wrapper post__footer"><p class="post__last-updated">This article was updated on April 20, 2020</p><ul class="post__tag"><li><a href="https://mcristelo.github.io/blog/javascript/">javascript</a></li></ul><div class="post__share"></div></footer></article><div class="post__comments"><div class="wrapper"><h2 class="h5">Comments</h2><div id="disqus_thread"></div><script>var disqus_config = function () {
+                       this.page.url = 'https://mcristelo.github.io/blog/simple-authentication-in-dotnet-core.html';
+               		this.page.identifier = '1';
+                       this.page.title = ' Simple authentication in dotnet core';
+                   };
+               
+                   var disqus_loaded = false;
+               
+                   function publiiLoadDisqus() {
+                       if(disqus_loaded) {
+                           return false;
+                       }
+               
+                       var top = document.getElementById('disqus_thread').offsetTop;
+               
+                       if (!disqus_loaded && (window.scrollY || window.pageYOffset) + window.innerHeight > top) {
+                           disqus_loaded = true;
+               
+                           (function () {
+                               var d = document, s = d.createElement('script');
+                               s.src = 'https://mcristeloblog.disqus.com/embed.js';
+                               s.setAttribute('data-timestamp', +new Date());
+                               (d.head || d.body).appendChild(s);
+                           })();
+                       }
+                   }
+               
+                   publiiLoadDisqus();
+               
+                   window.onscroll = function() {
+                       publiiLoadDisqus();
+                   };</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noreferrer">comments powered by Disqus.</a></noscript></div></div><div class="banner banner--after-post"><div class="wrapper"><script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script></div></div></main><footer class="footer"><div class="footer__copyright">Powered by <a href="https://getpublii.com" target="_blank" rel="nofollow noopener noreferrer">Publii Static CMS</a></div><button class="footer__bttop js-footer__bttop" aria-label="Back to top"><svg><title>Back to top</title><use xlink:href="https://mcristelo.github.io/blog/assets/svg/svg-map.svg#toparrow"/></svg></button></footer></div><script>window.publiiThemeMenuConfig = {    
+        mobileMenuMode: 'sidebar',
+        animationSpeed: 300,
+        submenuWidth: 'auto',
+        doubleClickTime: 500,
+        mobileMenuExpandableSubmenus: true, 
+        relatedContainerForOverlayMenuSelector: '.top',
+   };</script><script defer="defer" src="https://mcristelo.github.io/blog/assets/js/scripts.min.js?v=205f40927e4a45297a0b266e50ad78d5"></script><script>var lazyFeaturedImage=function lazyFeaturedImage(){var b=document.querySelectorAll(".hero__image-img");for(var a=0;a<b.length;a++){var c=b[a];c.addEventListener("lazyloaded",function(f){var d=f.target.parentNode;d.classList.add("hero__image--overlay")})}};lazyFeaturedImage();</script></body></html>

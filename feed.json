@@ -1,0 +1,28 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "MC Blog",
+    "description": "",
+    "home_page_url": "https://mcristelo.github.io/blog",
+    "feed_url": "https://mcristelo.github.io/blog/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "Manuel"
+    },
+    "items": [
+        {
+            "id": "https://mcristelo.github.io/blog/simple-authentication-in-dotnet-core.html",
+            "url": "https://mcristelo.github.io/blog/simple-authentication-in-dotnet-core.html",
+            "title": "Simple authentication in dotnet core",
+            "summary": "In order to use the dotnet core Cookie authentication you need to make the following changes to your project startup file. public void ConfigureServices(IServiceCollection services){ //(...) services.Configure(options =&gt; { options.MinimumSameSitePolicy = SameSiteMode.Strict; }); //(...)} public void ConfigureServices(IServiceCollection services){ //(....) services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) .AddCookie(); //(....)}Then on your login function var claims&hellip;",
+            "content_html": "<p>In order to use the dotnet core Cookie authentication you need to make the following changes to your project startup file.</p>\n<pre class=\"prettyprint\">public void ConfigureServices(IServiceCollection services)\n{\n    //(...)\n\n    services.Configure(options =&gt;\n    { \n      options.MinimumSameSitePolicy = SameSiteMode.Strict;\n    });  \n\n    //(...)\n}\n  \npublic void ConfigureServices(IServiceCollection services)\n{\n    //(....)\n    services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)\n    .AddCookie();\n  \n    //(....)\n}\n</pre>\n<p>Then on your login function </p>\n<pre class=\"prettyprint\">  var claims = new List\n  {\n      new Claim(ClaimTypes.Name, user.Email),\n      new Claim(\"FullName\", user.FullName),\n      new Claim(ClaimTypes.Role, \"Administrator\"),\n  };\n\n  var claimsIdentity = new ClaimsIdentity(\n      claims, CookieAuthenticationDefaults.AuthenticationScheme);\n  \n  // ExpiresUtc is set to 20 minutes from now which means the auth \n  // ticket will expire after 20 of inactivity by the user \n  // and will force a login\n  await HttpContext.SignInAsync(\n    CookieAuthenticationDefaults.AuthenticationScheme,\n    new ClaimsPrincipal(claimsIdentity),\n    new AuthenticationProperties() { ExpiresUtc = \n  DateTime.Now.AddMinutes(20)});\n</pre>",
+            "author": {
+                "name": "Manuel"
+            },
+            "tags": [
+                   "javascript"
+            ],
+            "date_published": "2020-04-09T17:35:53+01:00",
+            "date_modified": "2020-04-20T18:44:08+01:00"
+        }
+    ]
+}

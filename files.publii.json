@@ -1,0 +1,182 @@
+[
+    {
+        "path": "404.html",
+        "type": "file",
+        "md5": "c94fd2ef4707e399c04837354de04271"
+    },
+    {
+        "path": "assets",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "assets/css",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/css/editor.css",
+        "type": "file",
+        "md5": "4202808df745f2ac7ab250606fa0d272"
+    },
+    {
+        "path": "/assets/css/main.css",
+        "type": "file",
+        "md5": "3723af0ed16b7d7368193b2fca23132c"
+    },
+    {
+        "path": "/assets/css/photoswipe.css",
+        "type": "file",
+        "md5": "7331f6eb15671b2fc8e3ffd46e849f7b"
+    },
+    {
+        "path": "/assets/css/style.css",
+        "type": "file",
+        "md5": "cd7cde01862f3523ed8fe203d1bc3032"
+    },
+    {
+        "path": "assets/js",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/js/lazysizes.min.js",
+        "type": "file",
+        "md5": "6a69d476c93de2b78a72acb259abccea"
+    },
+    {
+        "path": "/assets/js/ls.parent-fit.min.js",
+        "type": "file",
+        "md5": "f8467455ea5c88e3e51a4f212d2632bd"
+    },
+    {
+        "path": "/assets/js/photoswipe-ui-default.min.js",
+        "type": "file",
+        "md5": "aafb02c13ce2b295ff34a8ac0db67cbb"
+    },
+    {
+        "path": "/assets/js/photoswipe.min.js",
+        "type": "file",
+        "md5": "9c62086e50d89a9b6a29389a70ee0d65"
+    },
+    {
+        "path": "/assets/js/scripts.js",
+        "type": "file",
+        "md5": "b00814b406ac7700d941b23e08c545b0"
+    },
+    {
+        "path": "/assets/js/scripts.min.js",
+        "type": "file",
+        "md5": "205f40927e4a45297a0b266e50ad78d5"
+    },
+    {
+        "path": "/assets/js/svg-fix.js",
+        "type": "file",
+        "md5": "9b7d020c55e2b4f77ab40c97f88f9ff4"
+    },
+    {
+        "path": "/assets/js/svg2js.js",
+        "type": "file",
+        "md5": "2edce17568ef29c308f3d0e28c9c7a06"
+    },
+    {
+        "path": "assets/svg",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/svg/gallery-icons-dark.svg",
+        "type": "file",
+        "md5": "b40f17fabcda1519011795fa715c5751"
+    },
+    {
+        "path": "/assets/svg/gallery-icons-light.svg",
+        "type": "file",
+        "md5": "ae5b8ffffb37a64a9be016441a42d939"
+    },
+    {
+        "path": "/assets/svg/search.svg",
+        "type": "file",
+        "md5": "a5bb83b82b98f41b359f20dbf9db6e44"
+    },
+    {
+        "path": "/assets/svg/svg-map.svg",
+        "type": "file",
+        "md5": "63bac2a8e88021dd997efbd9d8271be2"
+    },
+    {
+        "path": "authors",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "authors/manuel",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/authors/manuel/index.html",
+        "type": "file",
+        "md5": "edb032a9ce0653063111f741d17a5d3b"
+    },
+    {
+        "path": "feed.json",
+        "type": "file",
+        "md5": "c3acd9c3799b402fb76832121f13b664"
+    },
+    {
+        "path": "feed.xml",
+        "type": "file",
+        "md5": "79a7392b26ea07995dd6e3eb573f9ee6"
+    },
+    {
+        "path": "index.html",
+        "type": "file",
+        "md5": "c9614bf5cba5d74edcba85b9e3a110a3"
+    },
+    {
+        "path": "javascript",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/javascript/index.html",
+        "type": "file",
+        "md5": "8a35f24d3cc01ab241844e1a23ab65a7"
+    },
+    {
+        "path": "media",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "media/files",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "media/website",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "search.html",
+        "type": "file",
+        "md5": "61a0652325e61e02a693f97080e250a2"
+    },
+    {
+        "path": "simple-authentication-in-dotnet-core.html",
+        "type": "file",
+        "md5": "e0fd1081073c0e553a3c6fd9a59cb3a9"
+    },
+    {
+        "path": "sitemap.xml",
+        "type": "file",
+        "md5": "57e4ea3873ea0d3f76598ddaab01372f"
+    },
+    {
+        "path": "sitemap.xsl",
+        "type": "file",
+        "md5": "03c2f9a7fdcc46ff05c435907614a0b8"
+    }
+]
